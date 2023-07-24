@@ -15,14 +15,13 @@ let squareCount = 0;
 */
 function createDiv(){
     const newDiv = document.createElement('div');
-    squareCount++; //testing purposes
-    //css properties to apply and make it a square
-    newDiv.style.display = "flex";
-    newDiv.style.flex = `1 1 calc(${(100/GRID_SIZE)}% - 1px`;
-    newDiv.style.aspectRatio = 1/1;
-    newDiv.style.backgroundColor = "black";
-    newDiv.style.color = "white";
-    newDiv.textContent = squareCount; //testing purposes
+    squareCount++;                      //testing purposes
+    
+    applySquareCssProperties(newDiv);
+    newDiv.addEventListener('mouseover', backgroundColorChange);
+    newDiv.addEventListener('mouseleave', (e) => e.target.style.backgroundColor = "black" );
+    newDiv.style.color = "white";       //testing purposes
+    //newDiv.textContent = squareCount;   //testing purposes
     
     return newDiv;
 }
@@ -32,4 +31,15 @@ for(let i = 0; i < GRID_SIZE;i++){
     for(let y = 0; y < GRID_SIZE;y++){
         gridContainer.appendChild(createDiv());
     }
+}
+//css properties to apply and make it a square
+function applySquareCssProperties(div){
+    div.style.display = "flex";
+    div.style.flex = `1 1 calc(${(100/GRID_SIZE)}% - 1px`;
+    div.style.aspectRatio = 1/1;
+    div.style.backgroundColor = "black";    
+}
+
+function backgroundColorChange(e){
+    e.target.style.backgroundColor = "green";
 }
