@@ -64,8 +64,12 @@ function applySquareCssProperties(div){
     div.style.cursor = "pointer";   
 }
 
+function returnRandomRGB(){
+    return Math.floor(Math.random() * 256);
+}
+
 function backgroundColorChange(e){
-    e.target.style.backgroundColor = `rgba(0,0,0,${opacity})`;
+    e.target.style.backgroundColor = `rgba(${returnRandomRGB()},${returnRandomRGB()},${returnRandomRGB()},${opacity})`;
     opacity+=0.1;
 }
 
