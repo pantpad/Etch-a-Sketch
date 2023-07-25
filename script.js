@@ -1,7 +1,21 @@
 console.log('jsload');
-
-const GRID_SIZE = 16;
+let GRID_SIZE = 16;
 const gridContainer = document.querySelector('.container');
+const customGridBTN = document.getElementById('customGrid');
+
+customGridBTN.addEventListener('click',() => {
+    let cheDici = prompt("Insert a number that will specify the GRID X,Y SIZE\nMAX ALLOWED: 100!");
+
+    if(isNaN(cheDici)){
+        alert("Not A Number");
+        return;
+    }
+    if(cheDici > 0 && cheDici < 101){
+        GRID_SIZE = cheDici;
+        removeGrid();
+        createGrid();
+    }
+});
 
 //help me count the squares
 let squareCount = 0;
@@ -27,11 +41,20 @@ function createDiv(){
 }
 
 //create grid using two for cycles
-for(let i = 0; i < GRID_SIZE;i++){
-    for(let y = 0; y < GRID_SIZE;y++){
-        gridContainer.appendChild(createDiv());
+function createGrid(){
+    for(let i = 0; i < GRID_SIZE;i++){
+        for(let y = 0; y < GRID_SIZE;y++){
+            gridContainer.appendChild(createDiv());
+        }
     }
 }
+
+function removeGrid(){
+    let divToRemove = gridContainer.children.length;
+    for(let i = 0; i < divToRemove;i++)
+        gridContainer.removeChild(gridContainer.firstElementChild);
+}
+
 //css properties to apply and make it a square
 function applySquareCssProperties(div){
     div.style.display = "flex";
@@ -44,3 +67,8 @@ function applySquareCssProperties(div){
 function backgroundColorChange(e){
     e.target.style.backgroundColor = "green";
 }
+
+
+
+//create initial grid;
+createGrid();
