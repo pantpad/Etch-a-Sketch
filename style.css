@@ -12,3 +12,19 @@ body{
     gap: 1px;
     border: 1px solid pink;
 }
+
+.prompt{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(128,56,77,0.2);
+    padding: 20px;
+}
+
+button{
+    display: flex;
+    border:none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: aliceblue;
+    text-align: center;
+}

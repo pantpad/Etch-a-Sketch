@@ -19,7 +19,7 @@ function createDiv(){
     
     applySquareCssProperties(newDiv);
     newDiv.addEventListener('mouseover', backgroundColorChange);
-    newDiv.addEventListener('mouseleave', (e) => e.target.style.backgroundColor = "black" );
+    newDiv.addEventListener('mouseleave', (e) => e.target.style.backgroundColor = "white" );
     newDiv.style.color = "white";       //testing purposes
     //newDiv.textContent = squareCount;   //testing purposes
     
@@ -37,7 +37,8 @@ function applySquareCssProperties(div){
     div.style.display = "flex";
     div.style.flex = `1 1 calc(${(100/GRID_SIZE)}% - 1px`;
     div.style.aspectRatio = 1/1;
-    div.style.backgroundColor = "black";    
+    div.style.backgroundColor = "black";
+    div.style.cursor = "pointer";   
 }
 
 function backgroundColorChange(e){
